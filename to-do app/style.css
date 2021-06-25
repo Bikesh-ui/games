@@ -1,0 +1,14 @@
+body{
+	background-image: url("luffys.jpeg");
+}
+h1{
+	text-align: center;
+}
+div{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.yoyo{
+	text-decoration: line-through;
+}

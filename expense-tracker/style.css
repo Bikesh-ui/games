@@ -1,0 +1,15 @@
+h1{
+	text-align: center;
+}
+div{
+	text-align: center;
+}
+.expenses{
+	display: flex;
+	flex-direction: column;
+	text-decoration: underline;
+	margin-top: 40px;
+}
+.tog{
+	text-decoration: line-through;
+}
