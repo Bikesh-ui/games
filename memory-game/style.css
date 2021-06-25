@@ -1,0 +1,52 @@
+body{
+	background: grey;
+}
+
+.container {
+  display: grid;  
+  justify-content: center;
+/*  grid-template-columns: 60px 50px 50px;*/ /*Make the grid smaller than the container*/
+  grid-template-columns: repeat(4,60px);
+  grid-gap: 3px;
+  background-color: purple;
+  padding: 10px;
+  perspective: 1000px;
+}
+
+
+.animal{
+	/*background: black;*/
+	height:50px;
+	text-align: center;
+	font-size: 50px;
+	padding-bottom: 3px;
+  cursor: pointer;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+
+}
+.animal:active{
+  transform: scale(.97);
+  transition: transform .2s;
+}
+
+.animal.flip{
+  transform: rotateY(180deg);
+
+}
+.animal:hover{
+	border: 1px solid white;
+}
+.front,
+.back{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  background: black;
+}
+.front{
+  transform: rotateY(180deg);
+}
