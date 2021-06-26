@@ -1,50 +1,42 @@
-
-var names=document.getElementById('name');
-var date=document.getElementById('date');
-var amount=document.getElementById('amount');
-var table=document.getElementsByTagName('table')[0];
-
-
-var button=document.getElementById('add');
+var input=document.getElementById("name");
+var date=document.getElementById("date");
+var amount=document.getElementById("amount");
+var button=document.getElementById("btn");
+var table=document.getElementsByTagName("table")[0];
 
 
-function addingEvent(){
-	if (names.value.length>0 && amount.value>0){
-	var newRow=table.insertRow(1);
-	var cell1=newRow.insertCell(0);
-	var cell2=newRow.insertCell(1);
-	var cell3=newRow.insertCell(2);
-	var cell4=newRow.insertCell(3);
+button.addEventListener("click",()=>{
+	if(input.value.length>0){
+		var newRow = table.insertRow();
+		cell1=newRow.insertCell(0);
+		cell1.innerText=input.value;
+		cell2=newRow.insertCell(1);
+		cell2.innerText=date.value;
+		cell3=newRow.insertCell(2);
+		cell3.innerText=amount.value;
+		cell4=newRow.insertCell(3);
+		cell4.innerText="delete";
 
-	cell1.innerText=names.value;
-	cell2.innerText=date.value;
-	cell3.innerText=amount.value;
-	cell4.innerText="Delete"
-	names.value="";
-	amount.value=0;	
-	 cell1.addEventListener("click",function(){
-	 	cell1.classList.toggle("tog");
-	 	cell2.classList.toggle("tog");
-	 	cell3.classList.toggle("tog");
-	 	cell4.classList.toggle("tog");
-	 });
-	 cell4.addEventListener("click",function(){
-	 	cell1.remove();
-	 	cell2.remove();
-	 	cell3.remove();
-	 	cell4.remove();
+		input.value="";
+		amount.value=0;	
 
-	 });
+		let cells=[cell1,cell2,cell3];
+		cells.forEach((cell)=>{
+			cell.addEventListener("click",()=>{
+				// cells.classList.toggle("tog");
+				newRow.classList.toggle("tog");
+						})
+		})
 
-	}
+		cell4.addEventListener("click",()=>{
+			newRow.remove();
+
+		})
+
 
 }
-
-
-
-button.addEventListener("click",addingEvent);
-
-
-
-
 	
+});
+
+
+
